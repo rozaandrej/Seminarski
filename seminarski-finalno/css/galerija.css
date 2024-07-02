@@ -1,0 +1,386 @@
+* {
+    font-family: Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: #0f1d2d;
+    color: #c9f0e4;
+    overflow-x: hidden;
+}
+body {
+    background-color: #080f22;
+    display: flex;
+    flex-direction: column;
+}
+a {
+    text-decoration: none;
+}
+button {
+    cursor: pointer;
+}
+.zaglavlje {
+    padding-left: 10px 120px;
+    position: fixed;
+    width: 100%;
+    box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.25);
+    background: linear-gradient(90deg, #101a34 0%, #c9f0e4 100%);
+    display: flex;
+    justify-content: center;
+    z-index: 1000;
+}
+@media screen and (max-width: 768px) {
+    .ul-zaglavlje .li-zaglavlje a > dugme {
+        font-size: 0;
+    }
+    .ul-zaglavlje .li-zaglavlje a > strong {
+        font-size: 18px;
+    }
+}
+@media screen and (max-width: 480px) {
+    .ul-zaglavlje .li-zaglavlje a > dugme > img {
+        visibility: hidden;
+    }
+}
+.ul-zaglavlje {
+    display: flex;
+    justify-content: flex-end;
+    width: 1280px;
+    list-style: none;
+    padding: 0px 16px;
+    margin: 0.5em;
+    min-height: 40px;
+}
+.ul-zaglavlje:first-child {
+    padding-left: 0px;
+}
+.ul-zaglavlje:last-child {
+    padding-right: 0px;
+}
+.li-zaglavlje {
+    overflow: hidden;
+}
+.dugme-zaglavlje {
+    background-color: transparent;
+    padding: 10px 20px;
+    color: #0f1d2d;
+    border: none;
+    text-align: center;
+    font-weight: bold;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 2px 2px;
+    transform: scale(1);
+    transition: 0.5s ease-out;
+}
+.dugme-zaglavlje:hover {
+    color: #222f46;
+    transition: 0.5s ease-out;
+    transform: scale(1.2);
+}
+.dugme-zaglavlje:hover .ikone-navigacije {
+    visibility: visible;
+}
+.ikone-navigacija {
+    width: 15px;
+    height: 100%;
+    margin-right: 0.2em;
+    visibility: visible;
+}
+.li-zaglavlje:first-child {
+    margin-right: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.ime-kompanije {
+    background: -webkit-linear-gradient(#c9f0e4, #ca9352);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 22px;
+    font-weight: bold;
+}
+.logo {
+    width: 3dvh;
+    height: 3dvh;
+    margin-right: 10px;
+}
+.nnavigacija-meni {
+    display: flex;
+    position: fixed;
+    display: none;
+    flex-direction: row;
+    align-items: center;
+    right: 0;
+    top: 0;
+    z-index: 1000000;
+    background-color: #101a34;
+    height: auto;
+    width: auto;
+    display: none;
+}
+.kontejner {
+    display: flex;
+    flex-direction: column;
+    width: 1280px;
+    position: relative;
+}
+.navigacija-meni-kontejner {
+    position: relative;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+}
+.navigacija-meni-kontejner input[type="checkbox"] {
+    position: absolute;
+    height: 55px;
+    width: 60px;
+    right: 0;
+    top: 0;
+    opacity: 0;
+    z-index: 999999;
+}
+.navigacija-meni-kontejner input[type="checkbox"]:hover {
+    cursor: pointer;
+}
+.hamburger-linije {
+    height: 55px;
+    width: 60px;
+    right: 0 !important;
+    position: absolute !important;
+    left: auto;
+    background-color: #c9f0e4;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+.hamburger-linije .linija1 {
+    background-color: #101a34;
+    height: 3px;
+    width: 32px;
+    transition: 0.5s ease-out;
+}
+.hamburger-linije .linija2 {
+    background-color: #101a34;
+    height: 3px;
+    width: 24px;
+    transition: 0.5s ease-out;
+}
+.hamburger-linije .linija3 {
+    background-color: #101a34;
+    height: 3px;
+    width: 32px;
+    transition: 0.5s ease-out;
+}
+.meni-stavke {
+    display: none;
+    position: absolute;
+    right: 0;
+    left: auto;
+    top: 55px;
+    width: 200px;
+    background-color: #c9f0e4;
+    z-index: 100;
+}
+.meni-stavke li {
+    display: flex;
+    flex-direction: column;
+    background-color: #c9f0e4;
+    width: 100%;
+    list-style: none;
+    border-bottom: #101a34 1px solid;
+}
+.meni-stavke li a {
+    color: #101a34;
+    font-size: 18px;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    padding: 20px 0;
+    scale: 1;
+    transition: 0.5s ease-out;
+}
+.meni-stavke li a:hover {
+    scale: 1.1;
+    transition: 0.5s ease-out;
+    font-weight: bold;
+}
+@media screen and (max-width: 480px) {
+    .navigacija-meni {
+        display: block !important;
+    }
+    .navigacija-meni-kontejner input[type="checkbox"]:checked ~ .meni-stavke {
+        display: block !important;
+    }
+    .navigacija-meni-kontejner input[type="checkbox"]:checked ~ .hamburger-linije .linija1 {
+        transform: rotate(-45deg) translate(-10px, 10px);
+        transition: 0.5s ease-out;
+    }
+    .navigacija-meni-kontejner input[type="checkbox"]:checked ~ .hamburger-linije .linija2 {
+        opacity: 0;
+        transition: 0.5s ease-out;
+    }
+    .navigacija-meni-kontejner input[type="checkbox"]:checked ~ .hamburger-linije .linija3 {
+        transform: rotate(45deg) translate(-8px, -7px);
+        transition: 0.5s ease-out;
+    }
+    .navigacija-meni-kontejner input[type="checkbox"]:checked ~ .hamburger-linije .linija4 {
+        opacity: 0;
+        transition: 0.5s ease-out;
+    }
+    .ime-kompanije {
+        font-size: 18px;
+    }
+    .li-zaglavlje {
+        display: none;
+    }
+}
+.kontejner-galerije {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #101a34;
+    width: 94%;
+    padding: 10px;
+    box-shadow: 0 0 3px 0;
+    margin: 40px auto;
+}
+
+.stavka-galerije {
+    flex-basis: 32.7%;
+    margin-bottom: 6px;
+    margin-top: 20px;
+    opacity: 0.85;
+    cursor: pointer;
+}
+
+.stavka-galerije:hover {
+    opacity: 1;
+}
+
+.stavka-galerije img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.lightbox {
+    position: fixed;
+    display: none;
+    background-color: rgba(0, 0, 0, 0.7);
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 999;
+}
+
+.sadrzaj-lightbox-a {
+    position: absolute;
+    width: 80%;
+    height: 80%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.sadrzaj-lightbox-a img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.prethodna-slika,
+.sledeca-slika {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    background-color: rgba(f, f, f, 0.5);
+    color: white;
+    font-size: 30px;
+    line-height: 50px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.prethodna-slika {
+    left: 20px;
+}
+
+.sledeca-slika {
+    right: 20px;
+}
+
+@media (max-width: 767px) {
+    .stavka-galerije {
+        flex-basis: 49.8%;
+        margin-bottom: 3px;
+    }
+
+    .sadrzaj-lightbox-a {
+        width: 90%;
+        height: 90%;
+    }
+}
+
+@media (max-width: 480px) {
+    .stavka-galerije {
+        flex-basis: 100%;
+        margin-bottom: 1px;
+    }
+
+    .sadrzaj-lightbox-a {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+  .futer {
+    align-items: center;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    height: 70px;
+    width: 100%;
+    background-color: #222f46;
+  }
+  .futer > ul {
+    display: flex;
+    list-style: none;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+  }
+  .futer > ul > li {
+    margin: 0.5em;
+    font-style: italic;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    height: 100%;
+  }
+  .futer > ul > li:first-child {
+    margin-right: auto;
+  }
+  .futer > ul > li:last-child {
+    margin-left: 1em;
+    display: flex;
+    flex-direction: row;
+    margin-left: auto;
+  }
+  .ikone-futer {
+    width: 20px;
+    height: 20px;
+    margin-right: 2em;
+  }
+  .ikone-futer:hover {
+    transform: scale(1.2);
+    transition: 0.5s ease-in-out;
+    opacity: 0.7;
+  }

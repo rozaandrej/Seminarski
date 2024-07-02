@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/kontakt.css" />
+    <link
+      rel="shortcut icon"
+      type="image/logo"
+      href="./slike/logo/logo.png"
+    />
+    <title>Kontakt</title>
+  </head>
+  <body>
+    <div class="zaglavlje">
+      <ul class="ul-zaglavlje">
+        <li class="li-zaglavlje">
+          <a href="index.html"
+            ><img src="./slike/logo/logo.png" alt="logo" class="logo"
+          /></a>
+          <a href="index.html">
+            <strong class="naziv-kompanije">Kafa</strong>
+          </a>
+        </li>
+        <li class="li-zaglavlje">
+          <a href="index.html"
+            ><button href="index.html" class="dugme-zaglavlje">
+              <img
+                src="./slike/ikonice/pocetna.png"
+                alt="home"
+                class="ikone-navigacija"
+              />
+              Početna
+              </button>
+            </a>
+          </li>
+          <li class="li-zaglavlje">
+            <a href="oNama.html"
+              ><button class="dugme-zaglavlje">
+                <img
+                  src="./slike/ikonice/oNama.png"
+                  alt="oNama"
+                  class="ikone-navigacija"
+                />
+                O Nama
+              </button></a
+            >
+          </li>
+          <li class="li-zaglavlje">
+            <a href="galerija.html"
+              ><button class="dugme-zaglavlje">
+                <img
+                  src="./slike/ikonice/galerija.png"
+                  alt="galerija"
+                  class="ikone-navigacija"
+                />
+                Galerija
+              </button>
+            </a>
+          </li>
+          <li class="li-zaglavlje">
+            <a href="usluge.html"
+              ><button href="contact.html" class="dugme-zaglavlje">
+                <img
+                  src="./slike/ikonice/usluge.png"
+                  alt="usluge"
+                  class="ikone-navigacija"
+                />
+                Usluge
+              </button>
+            </a>
+          </li>
+          <li class="li-zaglavlje">
+            <a href="kontakt.html"
+              ><button href="./slike/ikonice/kontakt.png" class="dugme-zaglavlje">
+                <img
+                  src="./slike/ikonice/kontakt.png"
+                  alt="kontakt"
+                  class="ikone-navigacija"
+                />
+                Kontakt
+              </button>
+            </a>
+          </li>
+        </ul>
+      </div>
+    <div class="forma-kontakt">
+      <div class="container1">
+        <nav class="navigacija-meni">
+          <div class="navigacija-meni-kontejner">
+            <input type="checkbox" name="" id="menu-checkbox" />
+            <div class="hamburger-linije">
+                <span class="linija1"></span>
+                <span class="linija2"></span>
+                <span class="linija3"></span>
+                <span class="linija4"></span>
+            </div>
+            <ul class="meni-stavke">
+                <li><a href="index.html">Početna</a></li>
+                <li><a href="#">O Nama</a></li>
+                <li><a href="galerija.html">Galerija</a></li>
+                <li><a href="usluge.html">Usluge</a></li>
+                <li><a href="kontakt.html">Kontakt</a></li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+      <h1>Pošalji nam poruku</h1>
+      <form action="submit" class="forma">
+        <div class="levo">
+          <img
+            src="./slike/kontakt.jpg"
+            alt="kontakt"
+            class="kontakt-slika"
+          />
+        </div>
+        <div class="desno">
+          <label for="name">Ime:</label>
+          <input
+            type="text"
+            id="ime"
+            name="name"
+            placeholder="Unesite vaše ime..."
+            required
+          />
+          <p id="ime-greska" class="error">Ime mora biti upisano!</p>
+          <p id="ime-greska1" class="error">Ime mora imati bar 3 slova!</p>
+          <p id="ime-greska2" class="error">Ime mora da sadrži samo slova!</p>
+          <label for="surname">Prezime:</label>
+          <input
+            type="text"
+            id="prezime"
+            name="surname"
+            placeholder="Unesite vaše prezime..."
+            required
+          />
+          <p id="prezime-greska" class="error">
+            Prezme mora imati bar 3 slova!
+          </p>
+          <p id="prezime-greska1" class="error">
+            Prezime mora da sadrži samo slova!
+          </p>
+          <p id="prezime-greska2" class="error">Prezime mmora biti napisano!</p>
+          <label for="email">Email:</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Unesite vašu email adresu..."
+            required
+          />
+          <p id="email-greska" class="error">Email mora biti napisan!</p>
+          <p id="email-greska1" class="error">Email nije validan!</p>
+          <label for="message">Poruka:</label>
+          <textarea
+            id="poruka"
+            name="message"
+            placeholder="Kako vam možemo pomoći?"
+            required
+          ></textarea>
+          <p id="poruka-greska" class="error">Poruka mora biti napisana!</p>
+          <p id="tacno">Uspešno ste poslali poruku!</p>
+          <input type="submit" value="Pošalji" class="btn-submit" />
+        </div>
+      </form>
+    </div>
+    <div class="futer">
+        <ul>
+          <li><p>&copy 2024 Kafa</p></li>
+          <li>
+              <a href="https://www.instagram.com/"><img src="./slike/ikonice/instagram.png" alt="instagram" class="ikone-futer"></a>
+              <a href="https://www.facebook.com/"><img src="./slike/ikonice/facebook.png" alt="facebook" class="ikone-futer"></a>
+              <a href="index.html" id="futer-logo"><img src="./slike/logo/logo.png" alt="logo" class="logo"></a>
+          </li>
+        </ul>
+      </div>
+    <script src="js/kontakt.js"></script>
+  </body>
+</html>

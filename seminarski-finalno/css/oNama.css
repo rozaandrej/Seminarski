@@ -1,0 +1,500 @@
+* {
+    font-family: Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: #0f1d2d;
+  }
+  
+  body {
+    background-color: #080f22;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  a {
+    text-decoration: none;
+  }
+  
+  button {
+    cursor: pointer;
+  }
+  
+  .zaglavlje {
+    padding-left: 10px 120px;
+    position: fixed;
+    width: 100%;
+    box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.25);
+    background: linear-gradient(90deg, #101a34 0%, #c9f0e4 100%);
+    display: flex;
+    justify-content: center;
+    z-index: 1000;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .ul-zaglavlje .li-zaglavlje a > button {
+      font-size: 0;
+    }
+    .ul-zaglavlje .li-zaglavlje a > strong {
+      font-size: 18px;
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+    .ul-zaglavlje .li-zaglavlje a > button > img {
+      visibility: hidden;
+    }
+  }
+  
+  .ul-zaglavlje {
+    display: flex;
+    justify-content: flex-end;
+    width: 1280px;
+    list-style: none;
+    padding: 0px 16px;
+    margin: 0.5em;
+    min-height: 40px;
+  }
+  
+  .ul-zaglavlje:first-child {
+    padding-left: 0px;
+  }
+  
+  .ul-zaglavlje:last-child {
+    padding-right: 0px;
+  }
+  
+  .dugme-zaglavlje {
+    background-color: transparent;
+    padding: 10px 20px;
+    color: #0f1d2d;
+    border: none;
+    text-align: center;
+    font-weight: bold;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 2px 2px;
+    transform: scale(1);
+    transition: 0.5s ease-out;
+  }
+  
+  .dugme-zaglavlje:hover {
+    color: #222f46;
+    transition: 0.5s ease-out;
+    transform: scale(1.2);
+  }
+  
+  .dugme-zaglavlje:hover .ikone-navigacija {
+    visibility: visible;
+  }
+  
+  .ikone-navigacija {
+    width: 15px;
+    height: 100%;
+    margin-right: 0.2em;
+    visibility: visible;
+  }
+  
+  .li-zaglavlje:first-child {
+    margin-right: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  
+  .naziv-kompanije {
+    background: -webkit-linear-gradient(#c9f0e4, #ca9352);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 22px;
+    font-weight: bold;
+  }
+  
+  .logo {
+    width: 3dvh;
+    height: 3dvh;
+    margin-right: 10px;
+  }
+  
+  .navigacija-meni {
+    display: flex;
+    position: fixed;
+    display: none;
+    flex-direction: row;
+    align-items: center;
+    right: 0;
+    z-index: 10000;
+    background-color: #101a34;
+    height: auto;
+    width: auto;
+    display: none;
+  }
+  
+  .navigacija-meni-kontejner {
+    position: relative;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .navigacija-meni-kontejner input[type="checkbox"] {
+    position: absolute;
+    height: 55px;
+    width: 60px;
+    right: 0;
+    top: 0;
+    opacity: 0;
+    z-index: 999999;
+  }
+  
+  .navigacija-meni-kontejner input[type="checkbox"]:hover {
+    cursor: pointer;
+  }
+  
+  .hamburger-linije {
+    height: 55px;
+    width: 60px;
+    right: 0;
+    position: absolute;
+    left: auto;
+    background-color: #c9f0e4;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding-top: 4px;
+    padding-bottom: 4px;
+  }
+  
+  .hamburger-linije .line1 {
+    background-color: #101a34;
+    height: 3px;
+    width: 32px;
+    transition: 0.5s ease-out;
+  }
+  
+  .hamburger-linije .line2 {
+    background-color: #101a34;
+    height: 3px;
+    width: 24px;
+    transition: 0.5s ease-out;
+  }
+  
+  .hamburger-linije .line3 {
+    background-color: #101a34;
+    height: 3px;
+    width: 32px;
+    transition: 0.5s ease-out;
+  }
+  
+  .meni-stavke {
+    display: none;
+    position: absolute;
+    right: 0;
+    left: auto;
+    top: 55px;
+    width: 200px;
+    background-color: #c9f0e4;
+    z-index: 100;
+  }
+  
+  .meni-stavke li {
+    display: flex;
+    flex-direction: column;
+    background-color: #c9f0e4;
+    width: 100%;
+    list-style: none;
+    border-bottom: #101a34 1px solid;
+  }
+  
+  .meni-stavke li a {
+    color: #101a34;
+    font-size: 18px;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    padding: 20px 0;
+    scale: 1;
+    transition: 0.5s ease-out;
+  }
+  
+  .meni-stavke li a:hover {
+    scale: 1.1;
+    transition: 0.5s ease-out;
+    font-weight: bold;
+  }
+  
+  @media screen and (max-width: 480px) {
+    .navigacija-meni {
+      display: block;
+    }
+    .navigacija-meni-kontejner input[type="checkbox"]:checked ~ .meni-stavke {
+      display: block;
+    }
+    .navigacija-meni-kontejner input[type="checkbox"]:checked ~ .hamburger-linije .line1 {
+      transform: rotate(-45deg) translate(-10px, 10px);
+      transition: 0.5s ease-out;
+    }
+    .navigacija-meni-kontejner input[type="checkbox"]:checked ~ .hamburger-linije .line2 {
+      opacity: 0;
+      transition: 0.5s ease-out;
+    }
+    .navigacija-meni-kontejner input[type="checkbox"]:checked ~ .hamburger-linije .line3 {
+      transform: rotate(45deg) translate(-8px, -7px);
+      transition: 0.5s ease-out;
+    }
+    .naziv-kompanije {
+      font-size: 18px;
+    }
+    .li-zaglavlje {
+      display: none;
+    }
+  }
+  
+  @media screen and (max-width: 768px) {
+    .prvi-element > h1 {
+      display: none;
+    }
+    .prvi-element > p {
+      align-self: center;
+    }
+  }
+  .prednje {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .hero {
+    display: flex;
+    width: 100%;
+    position: relative;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .hero > img {
+    width: 100%;
+    height: 100%;
+    min-height: 80vh;
+    object-fit: cover;
+    position: relative;
+    top: 0;
+    left: 0;
+    z-index: 0;
+  }
+  .kontejner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 1280px;
+  }
+  @media screen and (max-width: 1280px) {
+    .kontejner {
+      width: 100%;
+    }
+  }
+  .ostatak-stranice {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 0 1em;
+  }
+  .o-nama {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 0em 0.5em;
+    margin-top: 7em;
+  }
+  .o-nama .kontejner > h2 {
+    grid-column: 1 / -1;
+    text-align: left;
+    font-size: 30px;
+    color: #c9f0e4;
+    background: -webkit-linear-gradient(#c9f0e4, #ca9352);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    border-bottom: #f4f1ee 1px solid;
+    padding-bottom: 0.2em;
+    margin-bottom: 1em;
+  }
+  .kontejner > p{
+    color: #c9f0e4;
+  }
+  .kompanija {
+    color: #ca9352;
+  }
+  .ul-o-nama-kontejner {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+  }
+  .ul-o-nama-kontejner > img {
+    margin-left: auto;
+    margin-top: 1em;
+    border: #222f46 2px solid;
+    opacity: 0.6;
+    width: 50%;
+    min-height: 88%;
+    margin-bottom: 1em;
+  }
+  .ul-o-nama > li strong {
+    color: #ca9352;
+    font-style: normal;
+  }
+  @media screen and (max-width: 768px) {
+    .ul-o-nama-kontejner > img {
+      display: none;
+    }
+  }
+  .ul-o-nama {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding-top: 1em;
+    list-style: none;
+    text-align: left;
+    width: auto;
+    width: 50%;
+    justify-content: space-between;
+  }
+  .ul-o-nama > li {
+    margin-bottom: 1em;
+    color: #c9f0e4;
+    font-size: 16px;
+    padding-bottom: 0.5em;
+    font-style: italic;
+    text-align: left;
+  }
+  .ul-o-nama > li:last-child {
+    padding-bottom: 0;
+  }
+  .o-nama .kontejner > p {
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
+  .cpp {
+    display: flex;
+    flex-direction: column;
+    padding: 0em 1em;
+    margin-top: 7em;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2em;
+  }
+  .cpp-kontejner {
+    display: flex;
+    flex-direction: column;
+    padding: 0 0.5em;
+    width: 100%;
+  }
+  .cpp-kontejner > h2 {
+    grid-column: 1 / -1;
+    text-align: left;
+    font-size: 30px;
+    color: #c9f0e4;
+    background: -webkit-linear-gradient(#c9f0e4, #ca9352);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    border-bottom: #f4f1ee 1px solid;
+    padding-bottom: 0.2em;
+    margin-bottom: 1em;
+    width: 100%;
+  }
+  .cpp {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 1em 0em;
+  }
+  .cpp1-par {
+    display: none;
+    color: #c9f0e4;
+  }
+  .cpp2-par {
+    display: none;
+    color: #c9f0e4;
+  }
+  .cpp3-par {
+    display: none;
+    color: #c9f0e4;
+  }
+  .cpp4-par {
+    display: none;
+    color: #c9f0e4;
+  }
+  .cpp > button > h3 {
+    color: #c9f0e4;
+    font-size: 20px;
+    padding: 1em;
+    text-align: left;
+    width: 100%;
+  }
+  .cpp-dugme {
+    background: transparent;
+    height: 50px;
+    align-items: center;
+    display: flex;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    width: 100%;
+    border-bottom: #c9f0e4 1px solid;
+  }
+  .cpp > p {
+    padding-top: 1em;
+    font-size: 16px;
+  }
+  .futer {
+    align-items: center;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    height: 70px;
+    width: 100%;
+    background-color: #222f46;
+    border-top: #ca9352 1px solid;
+  }
+  .futer > ul {
+    display: flex;
+    list-style: none;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+  }
+  .futer > ul > li {
+    margin: 0.5em;
+    font-style: italic;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    height: 100%;
+  }
+  .futer > ul > li:first-child {
+    margin-right: auto;
+  }
+  .futer > ul > li:last-child {
+    margin-left: 1em;
+    display: flex;
+    flex-direction: row;
+    margin-left: auto;
+  }
+  .ikone-futer {
+    width: 20px;
+    height: 20px;
+    margin-right: 2em;
+  }
+  .ikone-futer:hover {
+    transform: scale(1.2);
+    transition: 0.5s ease-in-out;
+    opacity: 0.7;
+  }  

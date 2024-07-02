@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="sr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/galerija.css" />
+    <link rel="shortcut icon" type="image/logo" href="./images/logo/logoipsum-299.svg"/>
+    <title>Galerija - Kafa</title>
+  </head>
+  <body>
+    <div class="zaglavlje">
+      <ul class="ul-zaglavlje">
+        <li class="li-zaglavlje">
+          <a href="index.html"
+            ><img src="./slike/logo/logo.png" alt="logo" class="logo"
+          /></a>
+          <a href="index.html">
+            <strong class="naziv-kompanije">Kafa</strong>
+          </a>
+        </li>
+        <li class="li-zaglavlje">
+          <a href="index.html"
+            ><button class="dugme-zaglavlje">
+              <img
+                src="./slike/ikonice/pocetna.png"
+                alt="pocetna"
+                class="ikone-navigacija"
+              />
+              Početna
+            </button>
+          </a>
+        </li>
+        <li class="li-zaglavlje">
+          <a href="oNama.html"
+            ><button class="dugme-zaglavlje">
+              <img
+                src="./slike/ikonice/oNama.png"
+                alt="oNama"
+                class="ikone-navigacija"
+              />
+              O Nama
+            </button></a
+          >
+        </li>
+        <li class="li-zaglavlje">
+          <a href="galerija.html"
+            ><button class="dugme-zaglavlje">
+              <img
+                src="./slike/ikonice/galerija.png"
+                alt="galerija"
+                class="ikone-navigacija"
+              />
+              Galerija
+            </button>
+          </a>
+        </li>
+        <li class="li-zaglavlje">
+          <a href="usluge.html"
+            ><button class="dugme-zaglavlje">
+              <img
+                src="./slike/ikonice/usluge.png"
+                alt="usluge"
+                class="ikone-navigacija"
+              />
+              Usluge
+            </button>
+          </a>
+        </li>
+        <li class="li-zaglavlje">
+          <a href="kontakt.html"
+            ><button class="dugme-zaglavlje">
+              <img
+                src="./slike/ikonice/kontakt.png"
+                alt="kontakt"
+                class="ikone-navigacija"
+              />
+              Kontakt
+            </button>
+          </a>
+        </li>
+      </ul>
+    </div>
+      <div class="kontejner">
+        <nav class="navigacija-meni">
+          <div class="navigacija-meni-kontejner">
+              <input type="checkbox" name="" id="meni-checkbox">
+              <div class="hamburger-linije">
+                  <span class="linija1"></span>
+                  <span class="linija2"></span>
+                  <span class="linija3"></span>
+                  <span class="linija4"></span>
+              </div>
+              <ul class="meni-stavke">
+                  <li><a href="#">Početna</a></li>
+                  <li><a href="oNama.html">O Nama</a></li>
+                  <li><a href="galerija.html">Galerija</a></li>
+                  <li><a href="usluge.html">Usluge</a></li>
+                  <li><a href="kontakt.html">Kontakt</a></li>
+              </ul>
+          </div>
+      </nav>
+      </div>
+    </div>
+    <div class="kontejner-galerije">
+        <div class="stavka-galerije" data-indeks="1"><img src="./slike/proces/proces1.jpg" alt="slika1"> </div>
+        <div class="stavka-galerije" data-indeks="2"><img src="./slike/proces/proces2.jpg" alt="slika2"> </div>
+        <div class="stavka-galerije" data-indeks="3"><img src="./slike/proces/proces3.jpg" alt="slika3"> </div>
+        <div class="stavka-galerije" data-indeks="4"><img src="./slike/proces/proces4.jpg" alt="slika4"> </div>
+        <div class="stavka-galerije" data-indeks="5"><img src="./slike/proces/proces5.jpg" alt="slika5"> </div>
+        <div class="stavka-galerije" data-indeks="6"><img src="./slike/proces/proces6.jpg" alt="slika6"> </div>
+    </div>
+    
+    <div class="lightbox">
+        <div class="sadrzaj-lightbox-a">
+            <img src="" alt="Slika u lightbox-u">
+            <div class="prethodna-slika">Prethodna</div>
+            <div class="sledeca-slika">Sledeća</div>
+        </div>
+    </div>
+    <div class="futer">
+      <ul>
+        <li><p>&copy 2024 Kafa</p></li>
+        <li>
+            <a href="https://www.instagram.com/"><img src="./slike/ikonice/instagram.png" alt="instagram" class="ikone-futer"></a>
+            <a href="https://www.facebook.com/"><img src="./slike/ikonice/facebook.png" alt="facebook" class="ikone-futer"></a>
+            <a href="index.html" id="futer-logo"><img src="./slike/logo/logo.png" alt="logo" class="logo"></a>
+        </li>
+      </ul>
+    </div>
+    <script>
+        const stavkaGalerije = document.getElementsByClassName("stavka-galerije");
+    const lightBoxKontejner = document.querySelector(".lightbox");
+    const lightBoxSlika = document.querySelector(".sadrzaj-lightbox-a img");
+    const lightBoxPrethodna = document.querySelector(".prethodna-slika");
+    const lightBoxSledeca = document.querySelector(".sledeca-slika");
+
+    let indeks = 1;
+
+    function prikaziLightBox(n) {
+        if (n > stavkaGalerije.length) {
+            indeks = 1;
+        } else if (n < 1) {
+            indeks = stavkaGalerije.length;
+        }
+        let lokacijaSlike = stavkaGalerije[indeks - 1].children[0].getAttribute("src");
+        lightBoxSlika.setAttribute("src", lokacijaSlike);
+    }
+
+    function trenutnaSlika() {
+        indeks = parseInt(this.getAttribute("data-indeks"));
+        prikaziLightBox(indeks);
+        lightBoxKontejner.style.display = "block";
+    }
+
+    for (let i = 0; i < stavkaGalerije.length; i++) {
+        stavkaGalerije[i].addEventListener("click", trenutnaSlika);
+    }
+
+    function klizanjeSlike(n) {
+        prikaziLightBox(indeks += n);
+    }
+
+    function prethodnaSlika() {
+        klizanjeSlike(-1);
+    }
+
+    function sledecaSlika() {
+        klizanjeSlike(1);
+    }
+
+    lightBoxPrethodna.addEventListener("click", prethodnaSlika);
+    lightBoxSledeca.addEventListener("click", sledecaSlika);
+
+    function zatvoriLightBox(event) {
+        if (event.target === lightBoxKontejner) {
+            lightBoxKontejner.style.display = "none";
+        }
+    }
+
+    lightBoxKontejner.addEventListener("click", zatvoriLightBox);
+    </script>
+  </body>
+</html>

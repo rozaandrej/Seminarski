@@ -1,0 +1,416 @@
+* {
+    font-family: Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: #0f1d2d;
+    color: #c9f0e4;
+    overflow-x: hidden;
+  }
+  
+  body {
+    background-color: #080f22;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  a {
+    text-decoration: none;
+  }
+  
+  button {
+    cursor: pointer;
+  }
+  
+  .zaglavlje {
+    padding-left: 10px 120px;
+    position: fixed;
+    width: 100%;
+    box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.25);
+    background: linear-gradient(90deg, #101a34 0%, #c9f0e4 100%);
+    display: flex;
+    justify-content: center;
+    z-index: 1000;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .ul-zaglavlje .li-zaglavlje a > button {
+      font-size: 0;
+    }
+    .ul-zaglavlje .li-zaglavlje a > strong {
+      font-size: 18px;
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+    .ul-zaglavlje .li-zaglavlje a > button > img {
+      visibility: hidden;
+    }
+  }
+  
+  .ul-zaglavlje {
+    display: flex;
+    justify-content: flex-end;
+    width: 1280px;
+    list-style: none;
+    padding: 0px 16px;
+    margin: 0.5em;
+    min-height: 40px;
+  }
+  
+  .ul-zaglavlje:first-child {
+    padding-left: 0px;
+  }
+  
+  .ul-zaglavlje:last-child {
+    padding-right: 0px;
+  }
+  
+  .li-zaglavlje {
+    overflow: hidden;
+  }
+  
+  .dugme-zaglavlje {
+    background-color: transparent;
+    padding: 10px 20px;
+    color: #0f1d2d;
+    border: none;
+    text-align: center;
+    font-weight: bold;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 2px 2px;
+    transform: scale(1);
+    transition: 0.5s ease-out;
+  }
+  
+  .dugme-zaglavlje:hover {
+    color: #222f46;
+    transition: 0.5s ease-out;
+    transform: scale(1.2);
+  }
+  
+  .dugme-zaglavlje:hover .ikone-navigacija {
+    visibility: visible;
+  }
+  
+  .ikone-navigacija {
+    width: 15px;
+    height: 100%;
+    margin-right: 0.2em;
+    visibility: visible;
+  }
+  
+  .li-zaglavlje:first-child {
+    margin-right: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  
+  .naziv-kompanije {
+    background: -webkit-linear-gradient(#c9f0e4, #ca9352);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 22px;
+    font-weight: bold;
+  }
+  
+  .logo {
+    width: 3dvh;
+    height: 3dvh;
+    margin-right: 10px;
+  }
+  
+  .navigacija-meni {
+    display: flex;
+    position: fixed;
+    display: none;
+    flex-direction: row;
+    align-items: center;
+    right: 0;
+    z-index: 10000;
+    background-color: #101a34;
+    height: auto;
+    width: auto;
+    display: none;
+  }
+  
+  .navigacija-meni-kontejner {
+    position: relative;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .navigacija-meni-kontejner input[type="checkbox"] {
+    position: absolute;
+    height: 55px;
+    width: 60px;
+    right: 0;
+    top: 0;
+    opacity: 0;
+    z-index: 999999;
+  }
+  
+  .navigacija-meni-kontejner input[type="checkbox"]:hover {
+    cursor: pointer;
+  }
+  
+  .hamburger-linije {
+    height: 55px;
+    width: 60px;
+    right: 0;
+    position: absolute;
+    left: auto;
+    background-color: #c9f0e4;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding-top: 4px;
+    padding-bottom: 4px;
+  }
+  
+  .hamburger-linije .line1 {
+    background-color: #101a34;
+    height: 3px;
+    width: 32px;
+    transition: 0.5s ease-out;
+  }
+  
+  .hamburger-linije .line2 {
+    background-color: #101a34;
+    height: 3px;
+    width: 24px;
+    transition: 0.5s ease-out;
+  }
+  
+  .hamburger-linije .line3 {
+    background-color: #101a34;
+    height: 3px;
+    width: 32px;
+    transition: 0.5s ease-out;
+  }
+  
+  .meni-stavke {
+    display: none;
+    position: absolute;
+    right: 0;
+    left: auto;
+    top: 55px;
+    width: 200px;
+    background-color: #c9f0e4;
+    z-index: 100;
+  }
+  
+  .meni-stavke li {
+    display: flex;
+    flex-direction: column;
+    background-color: #c9f0e4;
+    width: 100%;
+    list-style: none;
+    border-bottom: #101a34 1px solid;
+  }
+  
+  .meni-stavke li a {
+    color: #101a34;
+    font-size: 18px;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    padding: 20px 0;
+    scale: 1;
+    transition: 0.5s ease-out;
+  }
+  
+  .meni-stavke li a:hover {
+    scale: 1.1;
+    transition: 0.5s ease-out;
+    font-weight: bold;
+  }
+  @media screen and (max-width: 480px) {
+    .navigacija-meni {
+      display: block !important;
+    }
+    .navigacija-meni-kontejner input[type="checkbox"]:checked ~ .meni-stavke {
+      display: block !important;
+    }
+    .navigacija-meni-kontejner input[type="checkbox"]:checked ~ .hamburger-linije .line1 {
+      transform: rotate(-45deg) translate(-10px, 10px);
+      transition: 0.5s ease-out;
+    }
+    .navigacija-meni-kontejner input[type="checkbox"]:checked ~ .hamburger-linije .line2 {
+      opacity: 0;
+      transition: 0.5s ease-out;
+    }
+    .navigacija-meni-kontejner input[type="checkbox"]:checked ~ .hamburger-linije .line3 {
+      transform: rotate(45deg) translate(-8px, -7px);
+      transition: 0.5s ease-out;
+    }
+    .naziv-kompanije {
+      font-size: 18px;
+    }
+    .li-zaglavlje {
+      display: none;
+    }
+  }
+  .kontejner {
+    display: flex;
+    flex-direction: column;
+    max-width: 1280px;
+    position: relative;
+    justify-self: center;
+  }
+
+header {
+    width: 100%;
+    padding: 20px 0;
+    text-align: center;
+    border-bottom: 1px solid #444;
+    background-color: #080f22;
+  }
+  
+  header h1 {
+    margin: 0;
+    font-size: 2em;
+    color: #f8f8f8;
+  }
+  
+  .proizvodi {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 100px auto;
+    padding: 20px;
+  }
+  
+  .proizvod {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1em 0em;
+    background-color: #080f22;
+    border-radius: 10px;
+    box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    height: 100%;
+  }
+  
+  .slika-proizvod {
+    width: 28dvh;
+    height: 28dvh;
+    margin-bottom: 2em;
+    border-radius: 50%;
+    padding-top: 1em;
+    margin-top: auto;
+    opacity: 0.5;
+    transition: transform 0.8s ease-in-out, border-radius 0.8s ease-in-out, opacity 0.8s ease-in-out;
+  }
+  
+  .slika-proizvod:hover {
+    transform: scale(1.2);
+    border-radius: 0%;
+    opacity: 1;
+  }
+  
+  .proizvod h2 {
+    margin: 10px 0;
+    font-size: 1.5em;
+    color: #f8f8f8;
+  }
+  
+  .proizvod p {
+    margin: 0;
+    color: #ddd;
+    font-size: 1em;
+  }
+  
+
+  @media (min-width: 768px) {
+    header h1 {
+      font-size: 1.5em;
+    }
+  
+    .proizvodi {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  
+    .proizvod h2 {
+      font-size: 1.2em;
+    }
+  
+    .proizvod p {
+      font-size: 0.9em;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .proizvodi {
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+  
+    .proizvod {
+      padding: 10px;
+    }
+  
+    .proizvod h2 {
+      font-size: 1em;
+    }
+  
+    .proizvod p {
+      font-size: 0.8em;
+    }
+  }
+  .futer {
+    align-items: center;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    height: 70px;
+    width: 100%;
+    background-color: #222f46;
+    border-top: #ca9352 1px solid;
+  }
+  .futer > ul {
+    display: flex;
+    list-style: none;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    overflow-y: hidden;
+  }
+  .futer > ul > li {
+    margin: 0.5em;
+    font-style: italic;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    height: 100%;
+  }
+  .futer > ul > li:first-child {
+    margin-right: auto;
+  }
+  .futer > ul > li:last-child {
+    margin-left: 1em;
+    display: flex;
+    flex-direction: row;
+    margin-left: auto;
+  }
+  .ikone-futer {
+    width: 20px;
+    height: 20px;
+    margin-right: 2em;
+  }
+  .ikone-futer:hover {
+    transform: scale(1.2);
+    transition: 0.5s ease-in-out;
+    opacity: 0.7;
+  }
+  
